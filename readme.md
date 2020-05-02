@@ -9,7 +9,7 @@ This caddyfile will download a hugo site repository and deploy it.
 ### Caddyfile Login with Google
 More coming soon...
 
-#### The Notes
+### The Notes
 **Refresh Caddy Config**
 sudo pkill -USR1 caddy
 
