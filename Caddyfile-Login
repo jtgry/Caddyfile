@@ -1,0 +1,35 @@
+yourwebsite.com {
+root /var/www/yourwebsite.com/private
+ext .html
+gzip
+
+header / {
+  Cache-Control "no-cache, no-store, must-revalidate"
+  X-Frame-Options "DENY"
+  Access-Control-Allow-Origin  *
+  Referrer-Policy "origin-when-cross-origin"
+}
+
+jwt {
+    path /
+    redirect /login
+    allow domain domain.com
+}
+
+login {
+    logout_url /login
+    template login.html
+    google client_id=YOURCLIENTID
+}
+
+git {
+  repo     https://github.com/you/yourgitrepo.git
+  branch   master
+  path     ../repo
+  interval 15
+  then npm install
+  then npm run build
+  then mkdir -p ../private
+  then cp -r public/. ../private/
+}
+}
